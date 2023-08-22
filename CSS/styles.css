@@ -1,0 +1,70 @@
+/* CSS Reset */
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+label {
+  display: block;
+  margin: 10px 10px;
+}
+
+fieldset {
+  border-radius: 5px;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin: 10px 10px;
+}
+/* CSS Start */
+body {
+  background-color: rgb(240, 253, 250);
+  font-family: Inter, sans-serif;
+  color: rgb(15, 118, 110);
+}
+
+.page-heading {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.page-body {
+  display: flex;
+  margin: 20px 50px;
+  padding: 20px 50px;
+  border: 1px solid rgb(19, 78, 74);
+}
+
+.components {
+  border: 1px solid black;
+  padding: 20px 20px;
+  width: 50%;
+}
