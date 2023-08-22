@@ -1,17 +1,41 @@
 // reference to DOM elements
+// title and meta
 const titleInput = document.getElementById("title");
 const descInput = document.getElementById("description");
+
+//heading values
+const headingInput = document.getElementById("heading");
+const headingSizeSelect = document.getElementById("heading-size");
+const headingBgSelect = document.getElementById("heading-bg");
+const headingColorSelect = document.getElementById("heading-color");
+const headingAlignSelect = document.getElementById("heading-align");
+
+// preview frame
+const previewFrame = document.getElementById("preview-frame");
+
+// buttons
 const copyButton = document.getElementById("copy-button");
 const generateButton = document.getElementById("generate-button");
-
+const displayButton = document.getElementById("display-button");
+// result area
 const resultArea = document.getElementById("result");
 
+// Adding event listeners to buttons
 generateButton.addEventListener("click", generateHTML);
 copyButton.addEventListener("click", copyToClipboard);
+displayButton.addEventListener("click", displayPreview);
 
 function generateHTML() {
+  // reading values
+  // title and meta
   const pageTitle = titleInput.value;
   const content = descInput.value;
+  // heading section
+  const heading = headingInput.value;
+  const headingSize = headingSizeSelect.value;
+  const headingBg = headingBgSelect.value;
+  const headingColor = headingColorSelect.value;
+  const headingAlign = headingAlignSelect.value;
 
   const htmlCode = `<!DOCTYPE html>
 <html lang="en">
@@ -21,8 +45,12 @@ function generateHTML() {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="description" content="${content}">
     <title>${pageTitle}</title>
+	<style>
+	${headingSize}{background-color:${headingBg};color:${headingColor};text-align:${headingAlign}}
+	</style>
   </head>
   <body>
+   <${headingSize}>${heading}</${headingSize}>
   </body>
 </html>`;
   resultArea.value = htmlCode;
@@ -35,4 +63,10 @@ function copyToClipboard() {
   navigator.clipboard.writeText(textToCopy).then(() => {
     console.log("text copied to clipboard");
   });
+  alert("Code copied to clipboard");
+}
+
+function displayPreview() {
+  const htmlCode = document.getElementById("result");
+  previewFrame.srcdoc = htmlCode.value;
 }

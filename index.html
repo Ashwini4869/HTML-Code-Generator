@@ -16,35 +16,83 @@
     <h1 class="page-heading">HTML Code Generator</h1>
     <section class="page-body">
       <!-- Components Section -->
-      <section class="components">
+      <div class="components">
         <h1 class="components__heading">Components</h1>
         <div class="title-and-meta">
           <fieldset>
             <legend>Title and Meta</legend>
             <label for="title">Title of the web page:</label>
-            <input type="text" id="title" name="title" /><br />
+            <input type="text" id="title" name="title" />
             <label for="description">Description of page content:</label>
             <input type="text" id="description" name="description" />
           </fieldset>
         </div>
-      </section>
-      <!-- HTML Code Generated Section -->
-      <section class="code-generated">
-        <h1 class="code-generated__heading">Generated HTML Code</h1>
-        <div class="code-generated__result">
-          <textarea id="result">
+
+        <div class="heading-menu">
+          <fieldset>
+            <legend>Heading</legend>
+
+            <label for="heading">Put your heading here:</label>
+            <input type="text" id="heading" name="heading" />
+
+            <label for="heading-size">Select Heading Level:</label>
+            <select name="heading-size" id="heading-size">
+              <option value="h1">Heading 1</option>
+              <option value="h2">Heading 2</option>
+              <option value="h3">Heading 3</option>
+              <option value="h4">Heading 4</option>
+              <option value="h5">Heading 5</option>
+              <option value="h6">Heading 6</option>
+            </select>
+
+            <label for="heading-bg">Select Heading Background:</label>
+            <input
+              type="color"
+              name="heading-bg"
+              id="heading-bg"
+              value="#FFFFFF"
+            />
+
+            <label for="heading-color">Select Heading Color:</label>
+            <input type="color" name="heading-color" id="heading-color" />
+
+            <label for="heading-align">Select Heading Alignment:</label>
+            <select name="heading-align" id="heading-align">
+              <option value="left">Left</option>
+              <option value="right">Right</option>
+              <option value="center">Center</option>
+              <option value="justify">Justify</option>
+            </select>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="generated-and-preview">
+        <!-- HTML Code Generated Section -->
+        <div class="code-generated">
+          <h1 class="code-generated__heading">Generated HTML Code</h1>
+          <div class="code-generated__result">
+            <textarea id="result">
 The generated HTML Code will appear here.</textarea
-          >
+            >
+          </div>
+          <div class="button-container">
+            <button class="styled-button" id="generate-button">
+              Generate HTML!
+            </button>
+            <button class="styled-button" id="copy-button">
+              Copy to Clipboard
+            </button>
+          </div>
         </div>
-        <div class="button-container">
-          <button class="code-generated__button" id="generate-button">
-            Generate HTML!
-          </button>
-          <button class="copy-button" id="copy-button">
-            Copy to Clipboard
+        <div class="preview">
+          <h1>The preview of the generated code is:</h1>
+          <iframe id="preview-frame"></iframe>
+          <button class="styled-button" id="display-button">
+            Display Preview
           </button>
         </div>
-      </section>
+      </div>
     </section>
 
     <script src="./JS/script.js"></script>
