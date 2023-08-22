@@ -10,6 +10,7 @@ html {
 
 button {
   background: none;
+  border: none;
   outline: none;
   cursor: pointer;
 }
@@ -42,6 +43,11 @@ input {
   width: 90%;
   margin: 10px 10px;
 }
+
+textarea {
+  display: block;
+}
+
 /* CSS Start */
 body {
   background-color: rgb(240, 253, 250);
@@ -58,6 +64,7 @@ body {
 
 .page-body {
   display: flex;
+  gap: 20px;
   margin: 20px 50px;
   padding: 20px 50px;
   border: 1px solid rgb(19, 78, 74);
@@ -67,4 +74,69 @@ body {
   border: 1px solid black;
   padding: 20px 20px;
   width: 50%;
+}
+
+.components {
+}
+
+.code-generated {
+  border: 1px solid red;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.code-generated__heading {
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.code-generated__result {
+}
+
+#result {
+  width: 90%;
+  height: 150px;
+  padding: 20px 50px;
+  margin: 0 auto;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.copy-button {
+  background-color: rgb(13, 148, 136);
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 9999px;
+}
+
+.copy-button:hover {
+  background-color: rgb(20, 184, 166);
+}
+
+.copy-button:active {
+  background-color: rgb(13, 148, 136);
+}
+
+.code-generated__button {
+  background-color: rgb(13, 148, 136);
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 9999px;
+}
+
+.code-generated__button:hover {
+  background-color: rgb(20, 184, 166);
+}
+
+.code-generated__button:active {
+  background-color: rgb(13, 148, 136);
 }
