@@ -52,25 +52,96 @@ function generateHTML() {
   const paraBgColorValue = paraBgColor.value;
   const paraTextAlignValue = paraTextAlign.value;
 
-  const htmlCode = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="${content}">
-    <title>${pageTitle}</title>
-	<style>
-	${headingSize}{background-color:${headingBg};color:${headingColor};text-align:${headingAlign}}
-  p{font-size:${paraFontSizeValue}px; color:${paraTextColorValue};background-color:${paraBgColorValue};text-align:${paraTextAlignValue}}
-	</style>
-  </head>
-  <body>
-   <${headingSize}>${heading}</${headingSize}>
-   <p>${paraTextInputValue}</p>
-  </body>
-</html>`;
+  // checking to show a specific element or not
+  let showHeading = true,
+    showParagraph = true;
+  showHeadSection = true;
+  showBodySection = false;
+  showStyleSection = true;
 
+  // to show Head or not
+  if (pageTitle.length === 0 && content.length === 0) {
+    showHeadSection = false;
+  }
+  if (heading.length === 0) {
+    showHeading = false;
+  }
+  if (paraTextInputValue.length === 0) {
+    showParagraph = false;
+  }
+
+  if (showHeading || showParagraph) {
+    showBodySection = true;
+  }
+
+  // adding styling to generated code
+  var headingStyle, paragraphStyle;
+  if (showHeading) {
+    headingStyle = `${headingSize}{background-color:${headingBg};color:${headingColor};text-align:${headingAlign}}`;
+  } else {
+    headingStyle = "";
+  }
+
+  if (showParagraph) {
+    paragraphStyle = `p{font-size:${paraFontSizeValue}px; color:${paraTextColorValue};background-color:${paraBgColorValue};text-align:${paraTextAlignValue}}`;
+  } else {
+    paragraphStyle = "";
+  }
+  if (headingStyle.length === 0 && paragraphStyle.length === 0) {
+    showStyleSection = false;
+  }
+  var styleSection;
+  if (showStyleSection) {
+    styleSection = `<style>
+  ${headingStyle}
+  ${paragraphStyle}
+  </style>`;
+  } else {
+    styleSection = "";
+  }
+
+  // adding components to generated code
+  var headingBody, paragraphBody;
+  if (showHeading) {
+    headingBody = `<${headingSize}>${heading}</${headingSize}>`;
+  } else {
+    headingBody = "";
+  }
+
+  if (showParagraph) {
+    paragraphBody = `<p>${paraTextInputValue}</p>`;
+  } else {
+    paragraphBody = "";
+  }
+  var bodySection;
+  if (showBodySection) {
+    bodySection = `<body>
+  ${headingBody}
+  ${paragraphBody}
+  </body>`;
+  } else {
+    bodySection = "";
+  }
+  var htmlCode = "";
+  if (showHeadSection) {
+    htmlCode = `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="${content}">
+  <title>${pageTitle}</title>
+  ${styleSection}
+  </head>
+  ${bodySection}
+  </html>`;
+  } else {
+    htmlCode = `${styleSection}
+    ${bodySection}`;
+  }
+
+  console.log(htmlCode);
   resultArea.value = htmlCode;
 
   displayPreview(); //update Preview on HTML Change

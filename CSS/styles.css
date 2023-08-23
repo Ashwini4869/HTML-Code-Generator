@@ -108,12 +108,22 @@ body {
   padding: 0;
 }
 
+.generated-preview-container {
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .generated-and-preview {
+  position: sticky;
+  top: 5px;
   display: flex;
   gap: 10px;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
 }
 /* Code Generated Section */
 
@@ -139,6 +149,7 @@ body {
   height: 150px;
   padding: 10px 10px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .button-container {

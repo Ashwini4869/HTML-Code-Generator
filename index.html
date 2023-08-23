@@ -90,6 +90,7 @@
               id="para-font-size"
               name="para-font-size"
               class="updateHTML"
+              value="16"
             />
 
             <label for="para-text-color">Select text color</label>
@@ -123,25 +124,26 @@
           </fieldset>
         </div>
       </div>
-
-      <div class="generated-and-preview">
-        <!-- HTML Code Generated Section -->
-        <div class="code-generated">
-          <h1 class="code-generated__heading">Generated HTML Code</h1>
-          <div class="code-generated__result">
-            <textarea id="result">
+      <div class="generated-preview-container">
+        <div class="generated-and-preview">
+          <!-- HTML Code Generated Section -->
+          <div class="code-generated">
+            <h1 class="code-generated__heading">Generated HTML Code</h1>
+            <div class="code-generated__result">
+              <textarea id="result">
 The generated HTML Code will appear here.</textarea
-            >
+              >
+            </div>
+            <div class="button-container">
+              <button class="styled-button" id="copy-button">
+                Copy to Clipboard
+              </button>
+            </div>
           </div>
-          <div class="button-container">
-            <button class="styled-button" id="copy-button">
-              Copy to Clipboard
-            </button>
+          <div class="preview">
+            <h1>The preview of the generated code is:</h1>
+            <iframe id="preview-frame"></iframe>
           </div>
-        </div>
-        <div class="preview">
-          <h1>The preview of the generated code is:</h1>
-          <iframe id="preview-frame"></iframe>
         </div>
       </div>
     </section>
