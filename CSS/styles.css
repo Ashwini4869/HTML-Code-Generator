@@ -92,10 +92,10 @@ body {
   margin: 20px 50px;
   padding: 20px 50px;
   border: 1px solid rgb(19, 78, 74);
+  border-radius: 35px;
 }
 
 .components {
-  border: 1px solid black;
   padding: 20px 20px;
   width: 50%;
 }

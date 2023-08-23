@@ -67,7 +67,7 @@ function generateHTML() {
   const btnPaddingYValue = btnPaddingYInput.value;
   var btnBorderValue;
   if (!btnBorderInput.checked) {
-    btnBorderValue = "border:none";
+    btnBorderValue = "border:none;";
   } else {
     btnBorderValue = "";
   }
@@ -118,7 +118,7 @@ function generateHTML() {
   }
 
   if (showButton) {
-    buttonStyle = `button{padding:${btnPaddingYValue}px ${btnPaddingXValue}px;${btnBorderValue};border-radius:${btnBorderRadiusValue}px;background-color:${btnBgColorValue};color:${btnTextColorValue}}`;
+    buttonStyle = `button{padding:${btnPaddingYValue}px ${btnPaddingXValue}px;${btnBorderValue}border-radius:${btnBorderRadiusValue}px;background-color:${btnBgColorValue};color:${btnTextColorValue}}`;
   } else {
     buttonStyle = "";
   }
@@ -132,10 +132,10 @@ function generateHTML() {
   }
   var styleSection;
   if (showStyleSection) {
-    styleSection = `<style>
-  ${headingStyle}
-  ${paragraphStyle}
-  ${buttonStyle}
+    styleSection = `<style> 
+     ${headingStyle}
+     ${paragraphStyle}
+     ${buttonStyle}
   </style>`;
   } else {
     styleSection = "";
