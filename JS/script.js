@@ -15,13 +15,10 @@ const previewFrame = document.getElementById("preview-frame");
 
 // buttons
 const copyButton = document.getElementById("copy-button");
-const generateButton = document.getElementById("generate-button");
-
 // result area
 const resultArea = document.getElementById("result");
 
 // Adding event listeners to buttons
-generateButton.addEventListener("click", generateHTML);
 copyButton.addEventListener("click", copyToClipboard);
 
 // adding event listeners for all inputs
