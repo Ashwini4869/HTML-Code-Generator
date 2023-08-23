@@ -10,6 +10,13 @@ const headingBgSelect = document.getElementById("heading-bg");
 const headingColorSelect = document.getElementById("heading-color");
 const headingAlignSelect = document.getElementById("heading-align");
 
+// paragraph values
+const paraTextInput = document.getElementById("paragraph-text");
+const paraFontSize = document.getElementById("para-font-size");
+const paraTextColor = document.getElementById("para-text-color");
+const paraBgColor = document.getElementById("para-bg-color");
+const paraTextAlign = document.getElementById("para-text-align");
+
 // preview frame
 const previewFrame = document.getElementById("preview-frame");
 
@@ -38,6 +45,13 @@ function generateHTML() {
   const headingColor = headingColorSelect.value;
   const headingAlign = headingAlignSelect.value;
 
+  // paragraph section
+  const paraTextInputValue = paraTextInput.value;
+  const paraFontSizeValue = paraFontSize.value;
+  const paraTextColorValue = paraTextColor.value;
+  const paraBgColorValue = paraBgColor.value;
+  const paraTextAlignValue = paraTextAlign.value;
+
   const htmlCode = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,16 +62,18 @@ function generateHTML() {
     <title>${pageTitle}</title>
 	<style>
 	${headingSize}{background-color:${headingBg};color:${headingColor};text-align:${headingAlign}}
+  p{font-size:${paraFontSizeValue}px; color:${paraTextColorValue};background-color:${paraBgColorValue};text-align:${paraTextAlignValue}}
 	</style>
   </head>
   <body>
    <${headingSize}>${heading}</${headingSize}>
+   <p>${paraTextInputValue}</p>
   </body>
 </html>`;
+
   resultArea.value = htmlCode;
 
-  // update Preview
-  displayPreview();
+  displayPreview(); //update Preview on HTML Change
 }
 
 function copyToClipboard() {
