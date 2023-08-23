@@ -1,21 +1,30 @@
 // reference to DOM elements
-// title and meta
+// title and meta elements
 const titleInput = document.getElementById("title");
 const descInput = document.getElementById("description");
 
-//heading values
+//heading elements
 const headingInput = document.getElementById("heading");
 const headingSizeSelect = document.getElementById("heading-size");
 const headingBgSelect = document.getElementById("heading-bg");
 const headingColorSelect = document.getElementById("heading-color");
 const headingAlignSelect = document.getElementById("heading-align");
 
-// paragraph values
+// paragraph elements
 const paraTextInput = document.getElementById("paragraph-text");
 const paraFontSize = document.getElementById("para-font-size");
 const paraTextColor = document.getElementById("para-text-color");
 const paraBgColor = document.getElementById("para-bg-color");
 const paraTextAlign = document.getElementById("para-text-align");
+
+// button elements
+const btnTextInput = document.getElementById("btn-text");
+const btnPaddingXInput = document.getElementById("btn-padding-x");
+const btnPaddingYInput = document.getElementById("btn-padding-y");
+const btnBorderInput = document.getElementById("btn-border");
+const btnBorderRadiusInput = document.getElementById("btn-border-radius");
+const btnBgColorInput = document.getElementById("btn-bg-color");
+const btnTextColorInput = document.getElementById("btn-text-color");
 
 // preview frame
 const previewFrame = document.getElementById("preview-frame");
@@ -52,9 +61,24 @@ function generateHTML() {
   const paraBgColorValue = paraBgColor.value;
   const paraTextAlignValue = paraTextAlign.value;
 
+  // button section
+  const btnTextValue = btnTextInput.value;
+  const btnPaddingXValue = btnPaddingXInput.value;
+  const btnPaddingYValue = btnPaddingYInput.value;
+  var btnBorderValue;
+  if (!btnBorderInput.checked) {
+    btnBorderValue = "border:none";
+  } else {
+    btnBorderValue = "";
+  }
+  const btnBorderRadiusValue = btnBorderRadiusInput.value;
+  const btnBgColorValue = btnBgColorInput.value;
+  const btnTextColorValue = btnTextColorInput.value;
+
   // checking to show a specific element or not
   let showHeading = true,
     showParagraph = true;
+  showButton = true;
   showHeadSection = true;
   showBodySection = false;
   showStyleSection = true;
@@ -63,19 +87,24 @@ function generateHTML() {
   if (pageTitle.length === 0 && content.length === 0) {
     showHeadSection = false;
   }
+  // to show heading or not
   if (heading.length === 0) {
     showHeading = false;
   }
+  // to show paragraph or not
   if (paraTextInputValue.length === 0) {
     showParagraph = false;
   }
-
-  if (showHeading || showParagraph) {
+  // to show button or not
+  if (btnTextValue.length === 0) {
+    showButton = false;
+  }
+  // to show body section or not
+  if (showHeading || showParagraph || showButton) {
     showBodySection = true;
   }
-
-  // adding styling to generated code
-  var headingStyle, paragraphStyle;
+  // adding styling to generated code for components
+  var headingStyle, paragraphStyle, buttonStyle;
   if (showHeading) {
     headingStyle = `${headingSize}{background-color:${headingBg};color:${headingColor};text-align:${headingAlign}}`;
   } else {
@@ -87,7 +116,18 @@ function generateHTML() {
   } else {
     paragraphStyle = "";
   }
-  if (headingStyle.length === 0 && paragraphStyle.length === 0) {
+
+  if (showButton) {
+    buttonStyle = `button{padding:${btnPaddingYValue}px ${btnPaddingXValue}px;${btnBorderValue};border-radius:${btnBorderRadiusValue}px;background-color:${btnBgColorValue};color:${btnTextColorValue}}`;
+  } else {
+    buttonStyle = "";
+  }
+
+  if (
+    headingStyle.length === 0 &&
+    paragraphStyle.length === 0 &&
+    buttonStyle.length === 0
+  ) {
     showStyleSection = false;
   }
   var styleSection;
@@ -95,13 +135,14 @@ function generateHTML() {
     styleSection = `<style>
   ${headingStyle}
   ${paragraphStyle}
+  ${buttonStyle}
   </style>`;
   } else {
     styleSection = "";
   }
 
   // adding components to generated code
-  var headingBody, paragraphBody;
+  var headingBody, paragraphBody, buttonBody;
   if (showHeading) {
     headingBody = `<${headingSize}>${heading}</${headingSize}>`;
   } else {
@@ -113,11 +154,15 @@ function generateHTML() {
   } else {
     paragraphBody = "";
   }
+  if (showButton) {
+    buttonBody = `<button>${btnTextValue}</button>`;
+  }
   var bodySection;
   if (showBodySection) {
     bodySection = `<body>
   ${headingBody}
   ${paragraphBody}
+  ${buttonBody}
   </body>`;
   } else {
     bodySection = "";
@@ -141,7 +186,6 @@ function generateHTML() {
     ${bodySection}`;
   }
 
-  console.log(htmlCode);
   resultArea.value = htmlCode;
 
   displayPreview(); //update Preview on HTML Change

@@ -105,8 +105,7 @@ body {
   margin-top: 30px;
 }
 
-.btn-border-container,
-.btn-outline-container {
+.btn-border-container {
   display: flex;
   justify-content: flex-start;
 }
