@@ -16,14 +16,18 @@ const previewFrame = document.getElementById("preview-frame");
 // buttons
 const copyButton = document.getElementById("copy-button");
 const generateButton = document.getElementById("generate-button");
-const displayButton = document.getElementById("display-button");
+
 // result area
 const resultArea = document.getElementById("result");
 
 // Adding event listeners to buttons
 generateButton.addEventListener("click", generateHTML);
 copyButton.addEventListener("click", copyToClipboard);
-displayButton.addEventListener("click", displayPreview);
+
+// adding event listeners for all inputs
+document.querySelectorAll(".updateHTML").forEach((item) => {
+  item.addEventListener("change", generateHTML);
+});
 
 function generateHTML() {
   // reading values
@@ -54,6 +58,9 @@ function generateHTML() {
   </body>
 </html>`;
   resultArea.value = htmlCode;
+
+  // update Preview
+  displayPreview();
 }
 
 function copyToClipboard() {
