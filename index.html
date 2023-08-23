@@ -18,7 +18,7 @@
       <!-- Components Section -->
       <div class="components">
         <h1 class="components__heading">Components</h1>
-        <div class="title-and-meta">
+        <div class="title-and-meta m-top">
           <fieldset>
             <legend>Title and Meta</legend>
             <label for="title">Title of the web page:</label>
@@ -33,7 +33,7 @@
           </fieldset>
         </div>
 
-        <div class="heading-menu">
+        <div class="heading-menu m-top">
           <fieldset>
             <legend>Heading</legend>
 
@@ -72,7 +72,7 @@
             </select>
           </fieldset>
         </div>
-        <div class="paragraph-menu">
+        <div class="paragraph-menu m-top">
           <fieldset>
             <legend>Paragraph</legend>
             <label for="paragraph-text">Put your paragraph text here:</label>
@@ -123,7 +123,84 @@
             </select>
           </fieldset>
         </div>
+
+        <div class="button-menu m-top">
+          <fieldset>
+            <legend>Button</legend>
+
+            <label for="btn-text">Enter Button Text:</label>
+            <input
+              type="text"
+              id="btn-text"
+              name="btn-text"
+              class="updateHTML"
+            />
+
+            <label for="btn-padding-x">Enter Padding X:</label>
+            <input
+              type="number"
+              id="btn-padding-x"
+              name="btn-padding-x"
+              class="updateHTML"
+            />
+
+            <label for="btn-padding-y">Enter Padding Y:</label>
+            <input
+              type="number"
+              id="btn-padding-y"
+              name="btn-padding-y"
+              class="updateHTML"
+            />
+
+            <div class="btn-border-container">
+              <input
+                type="checkbox"
+                id="btn-border"
+                name="btn-border"
+                class="updateHTML"
+              />
+              <label for="btn-border">Show Border</label>
+            </div>
+
+            <div class="btn-outline-container">
+              <input
+                type="checkbox"
+                id="btn-outline"
+                name="btn-outline"
+                class="updateHTML"
+              />
+              <label for="btn-outline">Show Outline</label>
+            </div>
+
+            <label for="btn-border-radius">Enter Border Radius:</label>
+            <input
+              type="number"
+              id="btn-border-radius"
+              name="btn-border-radius"
+              class="updateHTML"
+            />
+
+            <label for="btn-bg-color">Choose Background Color:</label>
+            <input
+              type="color"
+              name="btn-bg-color"
+              id="btn-bg-color"
+              class="input-color-width-padding updateHTML"
+              value="#FFFFFF"
+            />
+
+            <label for="btn-text-color">Choose Text Color:</label>
+            <input
+              type="color"
+              name="btn-text-color"
+              id="btn-text-color"
+              class="input-color-width-padding updateHTML"
+            />
+          </fieldset>
+        </div>
       </div>
+
+      <!-- Code Generated and Preview Section -->
       <div class="generated-preview-container">
         <div class="generated-and-preview">
           <!-- HTML Code Generated Section -->
@@ -134,11 +211,9 @@
 The generated HTML Code will appear here.</textarea
               >
             </div>
-            <div class="button-container">
-              <button class="styled-button" id="copy-button">
-                Copy to Clipboard
-              </button>
-            </div>
+            <button class="styled-button" id="copy-button">
+              Copy to Clipboard
+            </button>
           </div>
           <div class="preview">
             <h1>The preview of the generated code is:</h1>
