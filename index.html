@@ -22,7 +22,13 @@
           <fieldset>
             <legend>Title and Meta</legend>
             <label for="title">Title of the web page:</label>
-            <input type="text" id="title" name="title" class="updateHTML" />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              class="updateHTML"
+              placeholder="Enter text to create HTML for title"
+            />
             <label for="description">Description of page content:</label>
             <input
               type="text"
@@ -33,12 +39,19 @@
           </fieldset>
         </div>
 
+        <!-- HEADING MENU -->
         <div class="heading-menu m-top">
           <fieldset>
             <legend>Heading</legend>
 
             <label for="heading">Put your heading here:</label>
-            <input type="text" id="heading" name="heading" class="updateHTML" />
+            <input
+              type="text"
+              id="heading"
+              name="heading"
+              class="updateHTML"
+              placeholder="Enter text to create Heading"
+            />
 
             <label for="heading-size">Select Heading Level:</label>
             <select name="heading-size" id="heading-size" class="updateHTML">
@@ -72,6 +85,8 @@
             </select>
           </fieldset>
         </div>
+
+        <!-- PARAGRAPH MENU -->
         <div class="paragraph-menu m-top">
           <fieldset>
             <legend>Paragraph</legend>
@@ -82,6 +97,7 @@
               rows="5"
               cols="50"
               class="updateHTML"
+              placeholder="Enter text to create Paragraph"
             ></textarea>
 
             <label for="para-font-size">Select font size:</label>
@@ -124,6 +140,7 @@
           </fieldset>
         </div>
 
+        <!-- BUTTON MENU -->
         <div class="button-menu m-top">
           <fieldset>
             <legend>Button</legend>
@@ -134,6 +151,7 @@
               id="btn-text"
               name="btn-text"
               class="updateHTML"
+              placeholder="Enter text to create Button"
             />
 
             <label for="btn-padding-x">Enter Padding X:</label>
@@ -208,7 +226,7 @@ The generated HTML Code will appear here.</textarea
             </button>
           </div>
           <div class="preview">
-            <h1>The preview of the generated code is:</h1>
+            <h1>Component Preview:</h1>
             <iframe id="preview-frame"></iframe>
           </div>
         </div>

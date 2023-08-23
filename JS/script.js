@@ -156,6 +156,8 @@ function generateHTML() {
   }
   if (showButton) {
     buttonBody = `<button>${btnTextValue}</button>`;
+  } else {
+    buttonBody = "";
   }
   var bodySection;
   if (showBodySection) {
