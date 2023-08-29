@@ -189,10 +189,11 @@ body {
   align-items: center;
 }
 
-#preview-frame {
-  width: 100%;
+#preview-window {
+  width: 80%;
   height: 300px;
   border: 1px solid teal;
   background-color: #ffffff;
   border-radius: 5px;
+  padding: 10px 20px;
 }
