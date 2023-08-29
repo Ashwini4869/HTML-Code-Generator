@@ -44,7 +44,6 @@ document.querySelectorAll(".updateHTML").forEach((item) => {
 });
 
 previewWindow.addEventListener("DOMCharacterDataModified", function () {
-  console.log("something in the div changed");
   const newContent = previewWindow.innerHTML;
   updateHTML(newContent);
 });
@@ -162,7 +161,7 @@ function generateHTML() {
     paragraphBody = "";
   }
   if (showButton) {
-    buttonBody = `<button contenteditable><span>${btnTextValue}</span></button>`;
+    buttonBody = `<button contenteditable>${btnTextValue}</button>`;
   } else {
     buttonBody = "";
   }
@@ -194,10 +193,10 @@ function generateHTML() {
     htmlCode = `${styleSection}
     ${bodySection}`;
   }
+  let previewhtmlCode = htmlCode.replaceAll(" contenteditable", "");
+  resultArea.value = previewhtmlCode;
 
-  resultArea.value = htmlCode;
-
-  displayPreview(); //update Preview on HTML Change
+  displayPreview(htmlCode); //update Preview on HTML Change
 }
 
 function copyToClipboard() {
@@ -210,14 +209,20 @@ function copyToClipboard() {
   alert("Code copied to clipboard");
 }
 
-function displayPreview() {
-  const htmlCode = document.getElementById("result");
-  // previewFrame.srcdoc = htmlCode.value;
-  previewWindow.innerHTML = htmlCode.value;
+function displayPreview(htmlCode) {
+  previewWindow.innerHTML = htmlCode;
 }
 
 function updateHTML(newContent) {
   const resultArea = document.getElementById("result");
   console.log(newContent);
-  resultArea.value = newContent;
+  // without contenteditable=""
+  let previewString = newContent.replaceAll(' contenteditable=""', "");
+  resultArea.value = previewString;
+  updateInputs(newContent);
+}
+
+function updateInputs(updatedContent) {
+  const htmlString = updatedContent;
+  console.log(htmlString);
 }
