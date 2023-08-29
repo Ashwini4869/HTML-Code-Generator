@@ -27,19 +27,26 @@ const btnBgColorInput = document.getElementById("btn-bg-color");
 const btnTextColorInput = document.getElementById("btn-text-color");
 
 // preview frame
-const previewFrame = document.getElementById("preview-frame");
+// const previewFrame = document.getElementById("preview-frame");
+const previewWindow = document.getElementById("preview-window");
 
 // buttons
 const copyButton = document.getElementById("copy-button");
 // result area
 const resultArea = document.getElementById("result");
 
-// Adding event listeners to buttons
+// Adding event listeners to button
 copyButton.addEventListener("click", copyToClipboard);
 
 // adding event listeners for all inputs
 document.querySelectorAll(".updateHTML").forEach((item) => {
   item.addEventListener("change", generateHTML);
+});
+
+previewWindow.addEventListener("DOMCharacterDataModified", function () {
+  console.log("something in the div changed");
+  const newContent = previewWindow.innerHTML;
+  updateHTML(newContent);
 });
 
 function generateHTML() {
@@ -144,18 +151,18 @@ function generateHTML() {
   // adding components to generated code
   var headingBody, paragraphBody, buttonBody;
   if (showHeading) {
-    headingBody = `<${headingSize}>${heading}</${headingSize}>`;
+    headingBody = `<${headingSize} contenteditable>${heading}</${headingSize}>`;
   } else {
     headingBody = "";
   }
 
   if (showParagraph) {
-    paragraphBody = `<p>${paraTextInputValue}</p>`;
+    paragraphBody = `<p contenteditable>${paraTextInputValue}</p>`;
   } else {
     paragraphBody = "";
   }
   if (showButton) {
-    buttonBody = `<button>${btnTextValue}</button>`;
+    buttonBody = `<button contenteditable><span>${btnTextValue}</span></button>`;
   } else {
     buttonBody = "";
   }
@@ -205,5 +212,12 @@ function copyToClipboard() {
 
 function displayPreview() {
   const htmlCode = document.getElementById("result");
-  previewFrame.srcdoc = htmlCode.value;
+  // previewFrame.srcdoc = htmlCode.value;
+  previewWindow.innerHTML = htmlCode.value;
+}
+
+function updateHTML(newContent) {
+  const resultArea = document.getElementById("result");
+  console.log(newContent);
+  resultArea.value = newContent;
 }
