@@ -193,6 +193,7 @@ function generateHTML() {
     htmlCode = `${styleSection}
     ${bodySection}`;
   }
+  // to remove contenteditable from preview
   let previewhtmlCode = htmlCode.replaceAll(" contenteditable", "");
   resultArea.value = previewhtmlCode;
 
@@ -215,14 +216,49 @@ function displayPreview(htmlCode) {
 
 function updateHTML(newContent) {
   const resultArea = document.getElementById("result");
-  console.log(newContent);
   // without contenteditable=""
   let previewString = newContent.replaceAll(' contenteditable=""', "");
   resultArea.value = previewString;
-  updateInputs(newContent);
+  updateInputs(previewString);
 }
 
-function updateInputs(updatedContent) {
-  const htmlString = updatedContent;
+function updateInputs(htmlString) {
   console.log(htmlString);
+  var hPattern = /<h[1-6][^>]*>([^<]*)<\/h[1-6]>/;
+  var headingMatch = htmlString.match(hPattern);
+
+  if (headingMatch) {
+    var hValue = headingMatch[1].trim();
+    console.log(hValue);
+  } else {
+    var hValue = "";
+    console.log("hvalue not found");
+  }
+
+  headingInput.value = hValue;
+  var pPattern = /<p[^>]*>([^<]*)<\/p>/;
+  var paragraphMatch = htmlString.match(pPattern);
+
+  if (paragraphMatch) {
+    var pValue = paragraphMatch[1].trim();
+    console.log(pValue);
+  } else {
+    var pValue = "";
+    console.log("pvalue not found");
+  }
+
+  paraTextInput.value = pValue;
+
+  var buttonPattern = /<button[^>]*>([^<]*)<\/button>/;
+  var buttonMatch = htmlString.match(buttonPattern);
+
+  if (buttonMatch) {
+    var buttonValue = buttonMatch[1].trim();
+    console.log(buttonValue);
+  } else {
+    var buttonValue = "";
+    console.log("button value not found");
+  }
+
+  btnTextInput.value = buttonValue;
 }
