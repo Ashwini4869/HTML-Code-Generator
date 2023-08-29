@@ -48,6 +48,11 @@ previewWindow.addEventListener("DOMCharacterDataModified", function () {
   updateHTML(newContent);
 });
 
+function removeNBSP(htmlString) {
+  const modHtmlString = htmlString.replaceAll(/&nbsp;/g, " ");
+  return modHtmlString;
+}
+
 function generateHTML() {
   // reading values
   // title and meta
@@ -195,7 +200,7 @@ function generateHTML() {
   }
   // to remove contenteditable from preview
   let previewhtmlCode = htmlCode.replaceAll(" contenteditable", "");
-  resultArea.value = previewhtmlCode;
+  resultArea.value = removeNBSP(previewhtmlCode);
 
   displayPreview(htmlCode); //update Preview on HTML Change
 }
@@ -217,7 +222,9 @@ function displayPreview(htmlCode) {
 function updateHTML(newContent) {
   const resultArea = document.getElementById("result");
   // without contenteditable=""
-  let previewString = newContent.replaceAll(' contenteditable=""', "");
+  let previewString = removeNBSP(
+    newContent.replaceAll(' contenteditable=""', "")
+  );
   resultArea.value = previewString;
   updateInputs(previewString);
 }
@@ -235,7 +242,7 @@ function updateInputs(htmlString) {
     console.log("hvalue not found");
   }
 
-  headingInput.value = hValue;
+  headingInput.value = removeNBSP(hValue);
   var pPattern = /<p[^>]*>([^<]*)<\/p>/;
   var paragraphMatch = htmlString.match(pPattern);
 
@@ -247,7 +254,7 @@ function updateInputs(htmlString) {
     console.log("pvalue not found");
   }
 
-  paraTextInput.value = pValue;
+  paraTextInput.value = removeNBSP(pValue);
 
   var buttonPattern = /<button[^>]*>([^<]*)<\/button>/;
   var buttonMatch = htmlString.match(buttonPattern);
@@ -260,5 +267,5 @@ function updateInputs(htmlString) {
     console.log("button value not found");
   }
 
-  btnTextInput.value = buttonValue;
+  btnTextInput.value = removeNBSP(buttonValue);
 }
