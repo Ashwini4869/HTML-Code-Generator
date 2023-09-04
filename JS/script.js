@@ -40,7 +40,7 @@ copyButton.addEventListener("click", copyToClipboard);
 
 // adding event listeners for all inputs
 document.querySelectorAll(".updateHTML").forEach((item) => {
-  item.addEventListener("change", generateHTML);
+  item.addEventListener("input", generateHTML);
 });
 
 previewWindow.addEventListener("DOMCharacterDataModified", function () {

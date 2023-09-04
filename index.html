@@ -156,9 +156,9 @@
               placeholder="Enter text to create Button"
             />
 
-            <label for="btn-padding-x">Enter Padding X:</label>
+            <label for="btn-padding-x">Change Button Width:</label>
             <input
-              type="number"
+              type="range"
               id="btn-padding-x"
               name="btn-padding-x"
               class="updateHTML"
@@ -167,9 +167,9 @@
               max="50"
             />
 
-            <label for="btn-padding-y">Enter Padding Y:</label>
+            <label for="btn-padding-y">Change Button Height:</label>
             <input
-              type="number"
+              type="range"
               id="btn-padding-y"
               name="btn-padding-y"
               class="updateHTML"
@@ -190,13 +190,13 @@
 
             <label for="btn-border-radius">Enter Border Radius:</label>
             <input
-              type="number"
+              type="range"
               id="btn-border-radius"
               name="btn-border-radius"
               class="updateHTML"
               value="0"
               min="0"
-              max="100"
+              max="50"
             />
 
             <label for="btn-bg-color">Choose Background Color:</label>
@@ -235,7 +235,7 @@ The generated HTML Code will appear here.</textarea
             </button>
           </div>
           <div class="preview">
-            <h1>Component Preview:</h1>
+            <h1 class="preview__heading">Component Preview:</h1>
             <!-- <iframe id="preview-frame"></iframe> -->
             <div id="preview-window"></div>
           </div>

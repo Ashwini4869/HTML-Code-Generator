@@ -53,6 +53,17 @@ input[type="checkbox"] {
   width: auto;
 }
 
+input[type="range"] {
+  width: 50%;
+}
+
+input[type="number"] {
+  width: 50%;
+}
+
+textarea {
+  resize: none;
+}
 input:focus {
   outline: none;
   color: rgb(15, 118, 110);
@@ -79,6 +90,14 @@ body {
   color: rgb(15, 118, 110);
 }
 
+.page-heading,
+.components__heading,
+.code-generated__heading,
+.preview__heading {
+  background-color: rgb(240, 253, 250);
+  font-family: Inter, sans-serif;
+  color: rgb(15, 118, 110);
+}
 .page-heading {
   font-size: 40px;
   font-weight: 600;
