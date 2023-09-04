@@ -19,6 +19,7 @@ const paraTextAlign = document.getElementById("para-text-align");
 
 // button elements
 const btnTextInput = document.getElementById("btn-text");
+const btnTextSizeInput = document.getElementById("btn-text-size");
 const btnPaddingXInput = document.getElementById("btn-padding-x");
 const btnPaddingYInput = document.getElementById("btn-padding-y");
 const btnBorderInput = document.getElementById("btn-border");
@@ -74,6 +75,7 @@ function generateHTML() {
 
   // button section
   const btnTextValue = btnTextInput.value;
+  const btnTextSizeValue = btnTextSizeInput.value;
   const btnPaddingXValue = btnPaddingXInput.value;
   const btnPaddingYValue = btnPaddingYInput.value;
   var btnBorderValue;
@@ -129,7 +131,7 @@ function generateHTML() {
   }
 
   if (showButton) {
-    buttonStyle = `button{padding:${btnPaddingYValue}px ${btnPaddingXValue}px;${btnBorderValue}border-radius:${btnBorderRadiusValue}px;background-color:${btnBgColorValue};color:${btnTextColorValue}}`;
+    buttonStyle = `button{padding:${btnPaddingYValue}px ${btnPaddingXValue}px;${btnBorderValue}border-radius:${btnBorderRadiusValue}px;background-color:${btnBgColorValue};font-size:${btnTextSizeValue}px;color:${btnTextColorValue}}`;
   } else {
     buttonStyle = "";
   }
