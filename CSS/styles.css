@@ -61,6 +61,11 @@ input[type="number"] {
   width: 50%;
 }
 
+input[type="color"] {
+  width: 50%;
+  padding: 0;
+}
+
 textarea {
   resize: none;
 }
@@ -96,6 +101,7 @@ body {
   color: rgb(15, 118, 110);
 }
 
+/* To overwrite the h1 html injected by preview */
 .page-heading,
 .components__heading,
 .code-generated__heading,
@@ -104,6 +110,7 @@ body {
   font-family: Inter, sans-serif;
   color: rgb(15, 118, 110);
 }
+
 .page-heading {
   font-size: 40px;
   font-weight: 600;
@@ -136,10 +143,6 @@ body {
 }
 
 /* generic class for width */
-.input-color-width-padding {
-  width: 20%;
-  padding: 0;
-}
 
 .generated-preview-container {
   position: relative;
