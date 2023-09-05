@@ -90,6 +90,7 @@ textarea {
 legend {
   font-size: 20px;
   padding: 0px 5px;
+  margin: 10px 10px;
   font-weight: 700;
 }
 
@@ -138,6 +139,10 @@ body {
 .btn-border-container {
   display: flex;
   justify-content: flex-start;
+}
+
+.select-list-type {
+  margin: 10px 10px;
 }
 
 .list-radio-container {
