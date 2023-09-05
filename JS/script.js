@@ -30,6 +30,12 @@ const btnTextColorInput = document.getElementById("btn-text-color");
 // List elements
 // for radio buttons
 const listRadioElements = document.getElementsByName("list-type");
+const unOrderedStyleSelect = document.getElementById("unordered-styles");
+const orderedStyleSelect = document.getElementById("ordered-styles");
+const unOrderedStyleWrapper = document.getElementById(
+  "unordered-style-wrapper"
+);
+const orderedStyleWrapper = document.getElementById("ordered-style-wrapper");
 const listItemInput = document.getElementById("list-item");
 const listItemArray = document.getElementsByClassName("list-item-input");
 const listItemsParent = document.getElementById("list-items-parent");
@@ -186,15 +192,29 @@ function generateHTML() {
     buttonStyle = "";
   }
 
-  // Styling for list - none yet
-  // if(showList){
-  //   listStyle=``
-  // }
+  var listStyleTypeValue;
+  if (listRadioElementValue === "ul") {
+    listStyleTypeValue = unOrderedStyleSelect.value;
+    unOrderedStyleWrapper.style.display = "block";
+    orderedStyleWrapper.style.display = "none";
+  } else {
+    orderedStyleWrapper.style.display = "block";
+    unOrderedStyleWrapper.style.display = "none";
+    listStyleTypeValue = orderedStyleSelect.value;
+  }
+
+  // Styling for list
+  if (showList) {
+    listStyle = `${listRadioElementValue}{list-style-type:${listStyleTypeValue};}`;
+  } else {
+    listStyle = "";
+  }
 
   if (
     headingStyle.length === 0 &&
     paragraphStyle.length === 0 &&
-    buttonStyle.length === 0
+    buttonStyle.length === 0 &&
+    listStyle.length === 0
   ) {
     showStyleSection = false;
   }
@@ -204,6 +224,7 @@ function generateHTML() {
      ${headingStyle}
      ${paragraphStyle}
      ${buttonStyle}
+     ${listStyle}
   </style>`;
   } else {
     styleSection = "";
@@ -335,3 +356,5 @@ function updateInputs(htmlString) {
 
   btnTextInput.value = removeNBSP(buttonValue);
 }
+
+generateHTML();
