@@ -257,12 +257,19 @@
             </div>
 
             <label for="list-items">Enter list items:</label>
-            <input
-              type="text"
-              name="list-items"
-              id="list-item"
-              class="updateHTML"
-            />
+            <div class="list-items-parent" id="list-items-parent">
+              <input
+                type="text"
+                name="list-items"
+                id="list-item"
+                class="updateHTML"
+              />
+            </div>
+            <div id="add-button">
+              <div class="add-button-wrapper">
+                <img src="./assets/add-button.svg" alt="add-button-svg" />
+              </div>
+            </div>
           </fieldset>
         </div>
       </div>
@@ -284,7 +291,6 @@ The generated HTML Code will appear here.</textarea
           </div>
           <div class="preview">
             <h1 class="preview__heading">Component Preview:</h1>
-            <!-- <iframe id="preview-frame"></iframe> -->
             <div id="preview-window"></div>
           </div>
         </div>

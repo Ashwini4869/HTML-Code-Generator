@@ -145,6 +145,28 @@ body {
   align-items: center;
 }
 
+.list-items-container {
+}
+
+#add-button {
+  border: 1px solid black;
+  width: 83%;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.add-button-wrapper {
+  margin: 0 auto;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*  */
 /* preview and generated section */
 
 .generated-preview-container {

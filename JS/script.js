@@ -31,6 +31,8 @@ const btnTextColorInput = document.getElementById("btn-text-color");
 // for radio buttons
 const listRadioElements = document.getElementsByName("list-type");
 const listItemInput = document.getElementById("list-item");
+const listItemsParent = document.getElementById("list-items-parent");
+const addButton = document.getElementById("add-button");
 
 // preview frame
 const previewWindow = document.getElementById("preview-window");
@@ -40,12 +42,21 @@ const copyButton = document.getElementById("copy-button");
 // result area
 const resultArea = document.getElementById("result");
 
+// Event Listeners Section
 // Adding event listeners to button
 copyButton.addEventListener("click", copyToClipboard);
 
 // adding event listeners for all inputs
 document.querySelectorAll(".updateHTML").forEach((item) => {
   item.addEventListener("input", generateHTML);
+});
+
+//adding event listener to add button to duplicate the div
+addButton.addEventListener("click", function () {
+  if (listItemInput) {
+    let newNode = listItemInput.cloneNode(true);
+    listItemsParent.appendChild(newNode);
+  }
 });
 
 previewWindow.addEventListener("DOMCharacterDataModified", function () {
