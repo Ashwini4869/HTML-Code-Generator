@@ -27,8 +27,12 @@ const btnBorderRadiusInput = document.getElementById("btn-border-radius");
 const btnBgColorInput = document.getElementById("btn-bg-color");
 const btnTextColorInput = document.getElementById("btn-text-color");
 
+// List elements
+// for radio buttons
+const listRadioElements = document.getElementsByName("list-type");
+const listItemInput = document.getElementById("list-item");
+
 // preview frame
-// const previewFrame = document.getElementById("preview-frame");
 const previewWindow = document.getElementById("preview-window");
 
 // buttons
@@ -87,6 +91,15 @@ function generateHTML() {
   const btnBorderRadiusValue = btnBorderRadiusInput.value;
   const btnBgColorValue = btnBgColorInput.value;
   const btnTextColorValue = btnTextColorInput.value;
+
+  // List Section
+  var listRadioElementValue;
+  for (i = 0; i < listRadioElements.length; i++) {
+    if (listRadioElements[i].checked) {
+      listRadioElementValue = listRadioElements[i].value;
+    }
+  }
+  const listItemInputValue = listItemInput.value;
 
   // checking to show a specific element or not
   let showHeading = true,

@@ -30,7 +30,6 @@ img {
 }
 
 label {
-  display: block;
   margin: 10px 10px;
 }
 
@@ -40,7 +39,7 @@ fieldset {
 
 input {
   display: block;
-  width: 90%;
+  width: 80%;
   height: 20px;
   margin: 10px 10px;
   padding: 5px 10px;
@@ -64,6 +63,11 @@ input[type="number"] {
 input[type="color"] {
   width: 50%;
   padding: 0;
+}
+
+input[type="radio"] {
+  display: inline;
+  width: initial;
 }
 
 textarea {
@@ -141,7 +145,12 @@ body {
   justify-content: flex-start;
 }
 
-/* generic class for width */
+.list-radio-container {
+  display: flex;
+  align-items: center;
+}
+
+/* preview and generated section */
 
 .generated-preview-container {
   position: relative;
