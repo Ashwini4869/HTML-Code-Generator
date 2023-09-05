@@ -105,6 +105,7 @@ function generateHTML() {
   let showHeading = true,
     showParagraph = true;
   showButton = true;
+  showList = true;
   showHeadSection = true;
   showBodySection = false;
   showStyleSection = true;
@@ -113,24 +114,33 @@ function generateHTML() {
   if (pageTitle.length === 0 && content.length === 0) {
     showHeadSection = false;
   }
+
   // to show heading or not
   if (heading.length === 0) {
     showHeading = false;
   }
+
   // to show paragraph or not
   if (paraTextInputValue.length === 0) {
     showParagraph = false;
   }
+
   // to show button or not
   if (btnTextValue.length === 0) {
     showButton = false;
   }
+
+  //to show list or not
+  if (listItemInputValue.length === 0) {
+    showList = false;
+  }
+
   // to show body section or not
-  if (showHeading || showParagraph || showButton) {
+  if (showHeading || showParagraph || showButton || showList) {
     showBodySection = true;
   }
   // adding styling to generated code for components
-  var headingStyle, paragraphStyle, buttonStyle;
+  var headingStyle, paragraphStyle, buttonStyle, listStyle;
   if (showHeading) {
     headingStyle = `${headingSize}{background-color:${headingBg};color:${headingColor};text-align:${headingAlign}}`;
   } else {
@@ -148,6 +158,11 @@ function generateHTML() {
   } else {
     buttonStyle = "";
   }
+
+  // Styling for list - none yet
+  // if(showList){
+  //   listStyle=``
+  // }
 
   if (
     headingStyle.length === 0 &&
@@ -168,7 +183,7 @@ function generateHTML() {
   }
 
   // adding components to generated code
-  var headingBody, paragraphBody, buttonBody;
+  var headingBody, paragraphBody, buttonBody, listBody;
   if (showHeading) {
     headingBody = `<${headingSize} contenteditable>${heading}</${headingSize}>`;
   } else {
@@ -185,12 +200,20 @@ function generateHTML() {
   } else {
     buttonBody = "";
   }
+  if (showList) {
+    listBody = `<${listRadioElementValue}>
+    <li>${listItemInputValue}</li></${listRadioElementValue}>`;
+  } else {
+    listBody = "";
+  }
+
   var bodySection;
   if (showBodySection) {
     bodySection = `<body>
   ${headingBody}
   ${paragraphBody}
   ${buttonBody}
+  ${listBody}
   </body>`;
   } else {
     bodySection = "";
