@@ -145,17 +145,10 @@ body {
   align-items: center;
 }
 
-.list-items-container {
-}
-
 #add-button {
-  border: 1px solid black;
-  width: 83%;
-  border-radius: 5px;
-  margin-left: 10px;
+  width: 84%;
+  margin: 5px 10px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
 }
 
 .add-button-wrapper {
@@ -166,7 +159,6 @@ body {
   align-items: center;
 }
 
-/*  */
 /* preview and generated section */
 
 .generated-preview-container {
@@ -223,6 +215,7 @@ body {
   font-size: 16px;
   padding: 10px 15px;
   border-radius: 9999px;
+  text-align: center;
 }
 
 .styled-button:hover {

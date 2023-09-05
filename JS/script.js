@@ -53,13 +53,23 @@ document.querySelectorAll(".updateHTML").forEach((item) => {
 });
 
 //adding event listener to add button to duplicate the div
+listItemInput.addEventListener("keypress", addEventOnInput);
+
+function addEventOnInput(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    addButton.click();
+  }
+}
+
 addButton.addEventListener("click", function () {
   if (listItemInput) {
-    let newNode = listItemInput.cloneNode(false);
+    let newNode = listItemInput.cloneNode(true);
     newNode.value = "";
-    // newNode.classList.add("list-item-input");
-    // newNode.classList.add("updateHTML");
+    newNode.addEventListener("input", generateHTML);
+    newNode.addEventListener("keypress", addEventOnInput);
     listItemsParent.appendChild(newNode);
+    newNode.focus(); //to place the cursor in newly created element
   }
 });
 
@@ -70,7 +80,8 @@ previewWindow.addEventListener("DOMCharacterDataModified", function () {
 
 function removeNBSP(htmlString) {
   const modHtmlString = htmlString.replaceAll(/&nbsp;/g, " ");
-  return modHtmlString;
+  const noLineModHtmlString = modHtmlString.replaceAll(/^\s*[\r\n]/gm, "");
+  return noLineModHtmlString;
 }
 
 function generateHTML() {
@@ -114,12 +125,10 @@ function generateHTML() {
       listRadioElementValue = listRadioElements[i].value;
     }
   }
-  console.log(listItemArray);
   var listValueArray = [];
   Array.from(listItemArray).forEach((elem) => {
     listValueArray.push(`<li>${elem.value}</li>`);
   });
-  console.log(listValueArray);
 
   // checking to show a specific element or not
   let showHeading = true,
@@ -151,9 +160,7 @@ function generateHTML() {
   }
 
   //to show list or not
-  if (listValueArray.length === 0) {
-    showList = false;
-  }
+  showList = Array.from(listItemArray).some((element) => element.value !== "");
 
   // to show body section or not
   if (showHeading || showParagraph || showButton || showList) {
