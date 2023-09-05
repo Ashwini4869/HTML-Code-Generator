@@ -31,6 +31,7 @@ const btnTextColorInput = document.getElementById("btn-text-color");
 // for radio buttons
 const listRadioElements = document.getElementsByName("list-type");
 const listItemInput = document.getElementById("list-item");
+const listItemArray = document.getElementsByClassName("list-item-input");
 const listItemsParent = document.getElementById("list-items-parent");
 const addButton = document.getElementById("add-button");
 
@@ -54,7 +55,10 @@ document.querySelectorAll(".updateHTML").forEach((item) => {
 //adding event listener to add button to duplicate the div
 addButton.addEventListener("click", function () {
   if (listItemInput) {
-    let newNode = listItemInput.cloneNode(true);
+    let newNode = listItemInput.cloneNode(false);
+    newNode.value = "";
+    // newNode.classList.add("list-item-input");
+    // newNode.classList.add("updateHTML");
     listItemsParent.appendChild(newNode);
   }
 });
@@ -110,7 +114,12 @@ function generateHTML() {
       listRadioElementValue = listRadioElements[i].value;
     }
   }
-  const listItemInputValue = listItemInput.value;
+  console.log(listItemArray);
+  var listValueArray = [];
+  Array.from(listItemArray).forEach((elem) => {
+    listValueArray.push(`<li>${elem.value}</li>`);
+  });
+  console.log(listValueArray);
 
   // checking to show a specific element or not
   let showHeading = true,
@@ -142,7 +151,7 @@ function generateHTML() {
   }
 
   //to show list or not
-  if (listItemInputValue.length === 0) {
+  if (listValueArray.length === 0) {
     showList = false;
   }
 
@@ -213,7 +222,8 @@ function generateHTML() {
   }
   if (showList) {
     listBody = `<${listRadioElementValue}>
-    <li>${listItemInputValue}</li></${listRadioElementValue}>`;
+    ${listValueArray.join("\n")}
+    </${listRadioElementValue}>`;
   } else {
     listBody = "";
   }
