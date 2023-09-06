@@ -105,7 +105,8 @@ body {
 .page-heading,
 .components__heading,
 .code-generated__heading,
-.preview__heading {
+.preview__heading,
+.select-list-type {
   background-color: rgb(240, 253, 250);
   font-family: Inter, sans-serif;
   color: rgb(15, 118, 110);
