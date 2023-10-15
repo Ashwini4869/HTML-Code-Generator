@@ -213,6 +213,10 @@ body {
 }
 
 /* generic button styles added to every button */
+.button-container {
+  display: flex;
+  gap: 20px;
+}
 
 .styled-button {
   background-color: rgb(13, 148, 136);

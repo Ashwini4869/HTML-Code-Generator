@@ -46,12 +46,15 @@ const previewWindow = document.getElementById("preview-window");
 
 // buttons
 const copyButton = document.getElementById("copy-button");
+const exportButton = document.getElementById("export-button");
+
 // result area
 const resultArea = document.getElementById("result");
 
 // Event Listeners Section
 // Adding event listeners to button
 copyButton.addEventListener("click", copyToClipboard);
+exportButton.addEventListener("click", exportHTML);
 
 // adding event listeners for all inputs
 document.querySelectorAll(".updateHTML").forEach((item) => {
@@ -300,6 +303,18 @@ function copyToClipboard() {
     console.log("text copied to clipboard");
   });
   alert("Code copied to clipboard");
+}
+
+function exportHTML() {
+  const htmlCode = resultArea.value;
+  const blob = new Blob([htmlCode], { type: "text/html" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "export.html";
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 
 function displayPreview(htmlCode) {
