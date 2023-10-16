@@ -243,6 +243,17 @@ body {
   text-align: center;
 }
 
+.disabled-button {
+  color: rgb(199, 195, 195);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 9999px;
+  text-align: center;
+  background-color: #697877;
+  cursor: not-allowed;
+}
+
 .styled-button:hover {
   background-color: rgb(20, 184, 166);
 }

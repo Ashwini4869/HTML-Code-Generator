@@ -52,6 +52,7 @@ const previewWindow = document.getElementById("preview-window");
 // buttons
 const copyButton = document.getElementById("copy-button");
 const exportButton = document.getElementById("export-button");
+const actionButtons = document.getElementsByClassName("action-button");
 
 // result area
 const resultArea = document.getElementById("result");
@@ -320,6 +321,19 @@ function generateHTML() {
   resultArea.textContent = removeNBSP(previewhtmlCode);
 
   displayPreview(htmlCode); //update Preview on HTML Change
+  if (htmlCode.trim()) {
+    Array.from(actionButtons).forEach((item) => {
+      item.classList.remove("disabled-button");
+      item.disabled = false;
+      item.classList.add("styled-button");
+    });
+  } else {
+    Array.from(actionButtons).forEach((item) => {
+      item.classList.remove("styled-button");
+      item.disabled = true;
+      item.classList.add("disabled-button");
+    });
+  }
 }
 
 function copyToClipboard() {
