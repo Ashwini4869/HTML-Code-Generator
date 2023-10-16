@@ -36,10 +36,15 @@ const unOrderedStyleWrapper = document.getElementById(
   "unordered-style-wrapper"
 );
 const orderedStyleWrapper = document.getElementById("ordered-style-wrapper");
+const listItemContainer = document.getElementById("list-item-container");
 const listItemInput = document.getElementById("list-item");
 const listItemArray = document.getElementsByClassName("list-item-input");
 const listItemsParent = document.getElementById("list-items-parent");
 const addButton = document.getElementById("add-button");
+const deleteButton = document.getElementById("delete-button");
+const deleteButtonGroup = document.getElementsByClassName(
+  "delete-button-group"
+);
 
 // preview frame
 const previewWindow = document.getElementById("preview-window");
@@ -64,6 +69,11 @@ document.querySelectorAll(".updateHTML").forEach((item) => {
 //adding event listener to add button to duplicate the div
 listItemInput.addEventListener("keypress", addEventOnInput);
 
+// // Highlighting
+// document.addEventListener("DOMContentLoaded", function () {
+//   Prism.highlightAll();
+// });
+
 function addEventOnInput(event) {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -71,16 +81,33 @@ function addEventOnInput(event) {
   }
 }
 
+let idNum = 1;
 addButton.addEventListener("click", function () {
-  if (listItemInput) {
-    let newNode = listItemInput.cloneNode(true);
-    newNode.value = "";
+  if (listItemContainer) {
+    let newNode = listItemContainer.cloneNode(true);
+    newNode.querySelector(".list-item-input").value = "";
+    newNode.id = `list-item-container-${idNum}`;
+    idNum++;
     newNode.addEventListener("input", generateHTML);
     newNode.addEventListener("keypress", addEventOnInput);
     listItemsParent.appendChild(newNode);
-    newNode.focus(); //to place the cursor in newly created element
+    newNode.querySelector(".list-item-input").focus(); //to place the cursor in newly created element
+
+    document.querySelectorAll(".delete-button-group").forEach((item) => {
+      item.addEventListener("click", removeElement);
+    });
   }
 });
+
+deleteButton.addEventListener("click", removeElement);
+
+function removeElement(event) {
+  const element = document.getElementById(
+    event.target.parentElement.parentElement.id
+  );
+  element.remove();
+  generateHTML();
+}
 
 previewWindow.addEventListener("DOMCharacterDataModified", function () {
   const newContent = previewWindow.innerHTML;
@@ -290,7 +317,7 @@ function generateHTML() {
   }
   // to remove contenteditable from preview
   let previewhtmlCode = htmlCode.replaceAll(" contenteditable", "");
-  resultArea.value = removeNBSP(previewhtmlCode);
+  resultArea.textContent = removeNBSP(previewhtmlCode);
 
   displayPreview(htmlCode); //update Preview on HTML Change
 }
