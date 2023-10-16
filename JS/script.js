@@ -52,6 +52,7 @@ const previewWindow = document.getElementById("preview-window");
 // buttons
 const copyButton = document.getElementById("copy-button");
 const exportButton = document.getElementById("export-button");
+const clearButton = document.getElementById("clear-button");
 const actionButtons = document.getElementsByClassName("action-button");
 
 // result area
@@ -61,6 +62,7 @@ const resultArea = document.getElementById("result");
 // Adding event listeners to button
 copyButton.addEventListener("click", copyToClipboard);
 exportButton.addEventListener("click", exportHTML);
+clearButton.addEventListener("click", clearAll);
 
 // adding event listeners for all inputs
 document.querySelectorAll(".updateHTML").forEach((item) => {
@@ -149,7 +151,7 @@ function generateHTML() {
   if (!btnBorderInput.checked) {
     btnBorderValue = "border:none;";
   } else {
-    btnBorderValue = "";
+    btnBorderValue = "border:1px solid black;";
   }
   const btnBorderRadiusValue = btnBorderRadiusInput.value;
   const btnBgColorValue = btnBgColorInput.value;
@@ -360,6 +362,10 @@ function exportHTML() {
 
 function displayPreview(htmlCode) {
   previewWindow.innerHTML = htmlCode;
+}
+
+function clearAll() {
+  location.reload();
 }
 
 function updateHTML(newContent) {

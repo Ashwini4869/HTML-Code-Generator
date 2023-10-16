@@ -138,6 +138,10 @@ body {
   width: 50%;
 }
 
+.select-list-type {
+  font-size: 16px;
+}
+
 /* generic class for margin */
 .m-top {
   margin-top: 30px;
@@ -171,8 +175,13 @@ body {
   align-items: center;
 }
 
-#delete-button {
-  width: 28px;
+.delete-button-group {
+  display: flex;
+  align-items: center;
+  width: 27px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
 
 .list-item-container {
@@ -241,6 +250,7 @@ body {
   padding: 10px 15px;
   border-radius: 9999px;
   text-align: center;
+  border: none;
 }
 
 .disabled-button {
@@ -252,6 +262,7 @@ body {
   text-align: center;
   background-color: #697877;
   cursor: not-allowed;
+  border: none;
 }
 
 .styled-button:hover {
