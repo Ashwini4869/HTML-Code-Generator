@@ -17,16 +17,20 @@ const paraFontSize = document.getElementById("para-font-size");
 const paraTextColor = document.getElementById("para-text-color");
 const paraBgColor = document.getElementById("para-bg-color");
 const paraTextAlign = document.getElementById("para-text-align");
+const paraFontSizeViewer = document.getElementById("para-font-size-viewer");
 
 // button elements
 const btnTextInput = document.getElementById("btn-text");
 const btnTextSizeInput = document.getElementById("btn-text-size");
-const btnPaddingXInput = document.getElementById("btn-padding-x");
-const btnPaddingYInput = document.getElementById("btn-padding-y");
+const btnWidthInput = document.getElementById("btn-width");
+const btnHeightInput = document.getElementById("btn-height");
 const btnBorderInput = document.getElementById("btn-border");
 const btnBorderRadiusInput = document.getElementById("btn-border-radius");
 const btnBgColorInput = document.getElementById("btn-bg-color");
 const btnTextColorInput = document.getElementById("btn-text-color");
+const btnTextSizeViewer = document.getElementById("btn-text-size-viewer");
+const btnWidthViewer = document.getElementById("btn-width-viewer");
+const btnHeightViewer = document.getElementById("btn-height-viewer");
 
 // List elements
 // for radio buttons
@@ -143,8 +147,8 @@ function generateHTML() {
   // button section
   const btnTextValue = btnTextInput.value;
   const btnTextSizeValue = btnTextSizeInput.value;
-  const btnPaddingXValue = btnPaddingXInput.value;
-  const btnPaddingYValue = btnPaddingYInput.value;
+  const btnWidthValue = btnWidthInput.value;
+  const btnHeightValue = btnHeightInput.value;
   var btnBorderValue;
   if (!btnBorderInput.checked) {
     btnBorderValue = "border:none;";
@@ -218,7 +222,7 @@ function generateHTML() {
   }
 
   if (showButton) {
-    buttonStyle = `button{padding:${btnPaddingYValue}px ${btnPaddingXValue}px;${btnBorderValue}border-radius:${btnBorderRadiusValue}px;background-color:${btnBgColorValue};font-size:${btnTextSizeValue}px;color:${btnTextColorValue}}`;
+    buttonStyle = `button{height:${btnHeightValue}px;width: ${btnWidthValue}px;${btnBorderValue}border-radius:${btnBorderRadiusValue}px;background-color:${btnBgColorValue};font-size:${btnTextSizeValue}px;color:${btnTextColorValue}}`;
   } else {
     buttonStyle = "";
   }
@@ -324,6 +328,18 @@ function generateHTML() {
   resultArea.textContent = removeNBSP(previewhtmlCode);
 
   displayPreview(htmlCode); //update Preview on HTML Change
+  toggleButtons(htmlCode); //toggle
+  updateSizePreview();
+}
+
+function updateSizePreview() {
+  paraFontSizeViewer.value = `${paraFontSize.value}px`;
+  btnTextSizeViewer.value = `${btnTextSizeInput.value}px`;
+  btnWidthViewer.value = `${btnWidthInput.value}px`;
+  btnHeightViewer.value = `${btnHeightInput.value}px`;
+}
+
+function toggleButtons(htmlCode) {
   if (htmlCode.trim()) {
     Array.from(actionButtons).forEach((item) => {
       item.classList.remove("disabled-button");

@@ -109,15 +109,24 @@
             ></textarea>
 
             <label for="para-font-size">Select font size:</label>
-            <input
-              type="range"
-              id="para-font-size"
-              name="para-font-size"
-              class="updateHTML"
-              value="16"
-              min="10"
-              max="40"
-            />
+            <div class="input-preview-container">
+              <input
+                type="range"
+                id="para-font-size"
+                name="para-font-size"
+                class="updateHTML"
+                value="16"
+                min="10"
+                max="40"
+              />
+              <textarea
+                id="para-font-size-viewer"
+                class="size-preview"
+                readonly
+              >
+              16px</textarea
+              >
+            </div>
 
             <label for="para-text-color">Select text color</label>
             <input
@@ -165,36 +174,52 @@
             />
 
             <label for="btn-text-size">Change Button Text Size:</label>
-            <input
-              type="range"
-              id="btn-text-size"
-              name="btn-text-size"
-              class="updateHTML"
-              value="16"
-              min="14"
-              max="30"
-            />
-            <label for="btn-padding-x">Change Button Width:</label>
-            <input
-              type="range"
-              id="btn-padding-x"
-              name="btn-padding-x"
-              class="updateHTML"
-              value="5"
-              min="5"
-              max="75"
-            />
+            <div class="input-preview-container">
+              <input
+                type="range"
+                id="btn-text-size"
+                name="btn-text-size"
+                class="updateHTML"
+                value="16"
+                min="14"
+                max="30"
+              />
+              <textarea id="btn-text-size-viewer" class="size-preview" readonly>
+16px</textarea
+              >
+            </div>
 
-            <label for="btn-padding-y">Change Button Height:</label>
-            <input
-              type="range"
-              id="btn-padding-y"
-              name="btn-padding-y"
-              class="updateHTML"
-              value="2"
-              min="2"
-              max="50"
-            />
+            <label for="btn-width">Change Button Width:</label>
+            <div class="input-preview-container">
+              <input
+                type="range"
+                id="btn-width"
+                name="btn-width"
+                class="updateHTML"
+                value="60"
+                min="50"
+                max="200"
+              />
+              <textarea id="btn-width-viewer" class="size-preview" readonly>
+60px</textarea
+              >
+            </div>
+
+            <label for="btn-height">Change Button Height:</label>
+            <div class="input-preview-container">
+              <input
+                type="range"
+                id="btn-height"
+                name="btn-height"
+                class="updateHTML"
+                value="30"
+                min="25"
+                max="60"
+              />
+              <textarea id="btn-height-viewer" class="size-preview" readonly>
+30px</textarea
+              >
+            </div>
 
             <div class="btn-border-container">
               <input
