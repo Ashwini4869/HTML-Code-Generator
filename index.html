@@ -305,12 +305,15 @@
                 <button
                   id="delete-button"
                   class="delete-button-group updateHTML"
+                  title="Delete this item"
                 >
                   <img src="./assets/delete-icon.png" />
                 </button>
               </div>
             </div>
-            <button id="add-button" class="styled-button">Add New Item</button>
+            <button id="add-button" class="styled-button" title="Add new item">
+              Add New Item
+            </button>
           </fieldset>
         </div>
       </div>
@@ -323,15 +326,14 @@
             <h1 class="code-generated__heading">Generated HTML Code</h1>
 
             <div class="code-generated__result">
-              <textarea id="result" readonly>
-              The generated HTML Code will appear here.
-              </textarea>
+              <textarea id="result" readonly></textarea>
             </div>
             <div class="button-container">
               <button
                 class="action-button disabled-button"
                 id="copy-button"
                 disabled
+                title="Copy Code to Clipboard"
               >
                 Copy to Clipboard
               </button>
@@ -339,6 +341,7 @@
                 class="action-button disabled-button"
                 id="export-button"
                 disabled
+                title="Download Code"
               >
                 Export HTML
               </button>
@@ -346,6 +349,7 @@
                 class="action-button disabled-button"
                 id="clear-button"
                 disabled
+                title="Clear All Fields"
               >
                 Clear All
               </button>

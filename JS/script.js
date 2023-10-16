@@ -1,4 +1,5 @@
 // reference to DOM elements
+
 // title and meta elements
 const titleInput = document.getElementById("title");
 const descInput = document.getElementById("description");
@@ -53,7 +54,7 @@ const previewWindow = document.getElementById("preview-window");
 const copyButton = document.getElementById("copy-button");
 const exportButton = document.getElementById("export-button");
 const clearButton = document.getElementById("clear-button");
-const actionButtons = document.getElementsByClassName("action-button");
+const actionButtons = document.getElementsByClassName("action-button"); // all three buttons
 
 // result area
 const resultArea = document.getElementById("result");
@@ -71,11 +72,6 @@ document.querySelectorAll(".updateHTML").forEach((item) => {
 
 //adding event listener to add button to duplicate the div
 listItemInput.addEventListener("keypress", addEventOnInput);
-
-// // Highlighting
-// document.addEventListener("DOMContentLoaded", function () {
-//   Prism.highlightAll();
-// });
 
 function addEventOnInput(event) {
   if (event.key === "Enter") {
@@ -125,9 +121,11 @@ function removeNBSP(htmlString) {
 
 function generateHTML() {
   // reading values
+
   // title and meta
   const pageTitle = titleInput.value;
   const content = descInput.value;
+
   // heading section
   const heading = headingInput.value;
   const headingSize = headingSizeSelect.value;
@@ -251,9 +249,12 @@ function generateHTML() {
   ) {
     showStyleSection = false;
   }
+
   var styleSection;
   if (showStyleSection) {
-    styleSection = `<style> 
+    styleSection = `
+    <!--CSS Code: Place this code in the document's head-->
+    <style> 
      ${headingStyle}
      ${paragraphStyle}
      ${buttonStyle}
