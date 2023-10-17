@@ -31,6 +31,9 @@ const btnTextColorInput = document.getElementById("btn-text-color");
 const btnTextSizeViewer = document.getElementById("btn-text-size-viewer");
 const btnWidthViewer = document.getElementById("btn-width-viewer");
 const btnHeightViewer = document.getElementById("btn-height-viewer");
+const btnBorderRadiusViewer = document.getElementById(
+  "btn-border-radius-viewer"
+);
 
 // List elements
 // for radio buttons
@@ -337,6 +340,7 @@ function updateSizePreview() {
   btnTextSizeViewer.value = `${btnTextSizeInput.value}px`;
   btnWidthViewer.value = `${btnWidthInput.value}px`;
   btnHeightViewer.value = `${btnHeightInput.value}px`;
+  btnBorderRadiusViewer.value = `${btnBorderRadiusInput.value}px`;
 }
 
 function toggleButtons(htmlCode) {

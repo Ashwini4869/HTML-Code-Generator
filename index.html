@@ -232,15 +232,24 @@
             </div>
 
             <label for="btn-border-radius">Enter Border Radius:</label>
-            <input
-              type="range"
-              id="btn-border-radius"
-              name="btn-border-radius"
-              class="updateHTML"
-              value="0"
-              min="0"
-              max="50"
-            />
+            <div class="input-preview-container">
+              <input
+                type="range"
+                id="btn-border-radius"
+                name="btn-border-radius"
+                class="updateHTML"
+                value="0"
+                min="0"
+                max="50"
+              />
+              <textarea
+                id="btn-border-radius-viewer"
+                class="size-preview"
+                readonly
+              >
+0px</textarea
+              >
+            </div>
 
             <label for="btn-bg-color">Choose Background Color:</label>
             <input
