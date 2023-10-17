@@ -71,6 +71,7 @@ const resultArea = document.getElementById("result");
 copyButton.addEventListener("click", copyToClipboard);
 exportButton.addEventListener("click", exportHTML);
 clearButton.addEventListener("click", clearAll);
+deleteButton.addEventListener("click", removeElement);
 
 // adding event listeners for all inputs
 document.querySelectorAll(".updateHTML").forEach((item) => {
@@ -104,8 +105,6 @@ addButton.addEventListener("click", function () {
     });
   }
 });
-
-deleteButton.addEventListener("click", removeElement);
 
 function removeElement(event) {
   const element = document.getElementById(
